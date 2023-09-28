@@ -1,0 +1,195 @@
+From bbb428b49dfa54a94148b08bdfe0f05441abe695 Mon Sep 17 00:00:00 2001
+From: Frank Acquah <acquahfrank25@gmail.com>
+Date: Thu, 28 Sep 2023 23:16:39 +0000
+Subject: [PATCH] Changes made to graphs to trigger an alert
+
+---
+ datafeed/server3.py    |  2 +-
+ package-lock.json      | 30 +++++++++++++++---------------
+ package.json           |  2 +-
+ src/DataManipulator.ts | 24 +++++++++++++++++++-----
+ src/Graph.tsx          | 22 ++++++++++++++--------
+ 5 files changed, 50 insertions(+), 30 deletions(-)
+
+diff --git a/datafeed/server3.py b/datafeed/server3.py
+index 2de4e28..9564162 100644
+--- a/datafeed/server3.py
++++ b/datafeed/server3.py
+@@ -317,4 +317,4 @@ if __name__ == '__main__':
+     if not os.path.isfile('test.csv'):
+         print ("No data found, generating...")
+         generate_csv()
+-    run(App())
++    run(App)
+diff --git a/package-lock.json b/package-lock.json
+index 8135a72..528cccb 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -8,7 +8,7 @@
+       "name": "bank-merge-co-task-3",
+       "version": "0.1.0",
+       "dependencies": {
+-        "@finos/perspective": "^1.6.2",
++        "@finos/perspective": "^1.9.4",
+         "@finos/perspective-viewer": "^1.6.2",
+         "@finos/perspective-viewer-d3fc": "^1.6.2",
+         "@finos/perspective-viewer-datagrid": "^1.6.2",
+@@ -2129,11 +2129,11 @@
+       }
+     },
+     "node_modules/@finos/perspective": {
+-      "version": "1.6.2",
+-      "resolved": "https://registry.npmjs.org/@finos/perspective/-/perspective-1.6.2.tgz",
+-      "integrity": "sha512-SdHIPe3AiLEigkbYEMG9+Tsxq5tnsoC4Ch0X1a13QM3vRfw+VUnNj0TioBYC4fwRIKO4NoS3dobbYmkNc0piAQ==",
++      "version": "1.9.4",
++      "resolved": "https://registry.npmjs.org/@finos/perspective/-/perspective-1.9.4.tgz",
++      "integrity": "sha512-rW6xcC/IUp+ffQ0/1Lv8gY/FbrtEGVt1FmJRG3Un0DAAya5xxd4z9yb6HdDklL9UbG9mYL16ZfqNLNB70R6+0w==",
+       "dependencies": {
+-        "fflate": "^0.7.2",
++        "fflate": "^0.7.4",
+         "ws": "^6.1.2"
+       },
+       "engines": {
+@@ -7594,9 +7594,9 @@
+       }
+     },
+     "node_modules/fflate": {
+-      "version": "0.7.3",
+-      "resolved": "https://registry.npmjs.org/fflate/-/fflate-0.7.3.tgz",
+-      "integrity": "sha512-0Zz1jOzJWERhyhsimS54VTqOteCNwRtIlh8isdL0AXLo0g7xNTfTL7oWrkmCnPhZGocKIkWHBistBrrpoNH3aw=="
++      "version": "0.7.4",
++      "resolved": "https://registry.npmjs.org/fflate/-/fflate-0.7.4.tgz",
++      "integrity": "sha512-5u2V/CDW15QM1XbbgS+0DfPxVB+jUKhWEKuuFuHncbk3tEEqzmoXL+2KyOFuKGqOnmdIy0/davWF1CkuwtibCw=="
+     },
+     "node_modules/figgy-pudding": {
+       "version": "3.5.2",
+@@ -21827,11 +21827,11 @@
+       }
+     },
+     "@finos/perspective": {
+-      "version": "1.6.2",
+-      "resolved": "https://registry.npmjs.org/@finos/perspective/-/perspective-1.6.2.tgz",
+-      "integrity": "sha512-SdHIPe3AiLEigkbYEMG9+Tsxq5tnsoC4Ch0X1a13QM3vRfw+VUnNj0TioBYC4fwRIKO4NoS3dobbYmkNc0piAQ==",
++      "version": "1.9.4",
++      "resolved": "https://registry.npmjs.org/@finos/perspective/-/perspective-1.9.4.tgz",
++      "integrity": "sha512-rW6xcC/IUp+ffQ0/1Lv8gY/FbrtEGVt1FmJRG3Un0DAAya5xxd4z9yb6HdDklL9UbG9mYL16ZfqNLNB70R6+0w==",
+       "requires": {
+-        "fflate": "^0.7.2",
++        "fflate": "^0.7.4",
+         "ws": "^6.1.2"
+       }
+     },
+@@ -26244,9 +26244,9 @@
+       }
+     },
+     "fflate": {
+-      "version": "0.7.3",
+-      "resolved": "https://registry.npmjs.org/fflate/-/fflate-0.7.3.tgz",
+-      "integrity": "sha512-0Zz1jOzJWERhyhsimS54VTqOteCNwRtIlh8isdL0AXLo0g7xNTfTL7oWrkmCnPhZGocKIkWHBistBrrpoNH3aw=="
++      "version": "0.7.4",
++      "resolved": "https://registry.npmjs.org/fflate/-/fflate-0.7.4.tgz",
++      "integrity": "sha512-5u2V/CDW15QM1XbbgS+0DfPxVB+jUKhWEKuuFuHncbk3tEEqzmoXL+2KyOFuKGqOnmdIy0/davWF1CkuwtibCw=="
+     },
+     "figgy-pudding": {
+       "version": "3.5.2",
+diff --git a/package.json b/package.json
+index 8ca3a60..e7e3c7f 100644
+--- a/package.json
++++ b/package.json
+@@ -3,7 +3,7 @@
+   "version": "0.1.0",
+   "private": true,
+   "dependencies": {
+-    "@finos/perspective": "^1.6.2",
++    "@finos/perspective": "^1.9.4",
+     "@finos/perspective-viewer": "^1.6.2",
+     "@finos/perspective-viewer-d3fc": "^1.6.2",
+     "@finos/perspective-viewer-datagrid": "^1.6.2",
+diff --git a/src/DataManipulator.ts b/src/DataManipulator.ts
+index 7f62295..96d1f61 100644
+--- a/src/DataManipulator.ts
++++ b/src/DataManipulator.ts
+@@ -1,8 +1,12 @@
+ import { ServerRespond } from './DataStreamer';
+ 
+ export interface Row {
+-  stock: string,
+-  top_ask_price: number,
++  price_abc:number,
++  price_def:number,
++  ratio:number,
++  upper_bound:number,
++  lower_bound:number,
++  trigger_alert:number | undefined,
+   timestamp: Date,
+ }
+ 
+@@ -10,10 +14,20 @@ export interface Row {
+ export class DataManipulator {
+   static generateRow(serverResponds: ServerRespond[]) {
+     return serverResponds.map((el: any) => {
++      const price_abc = (serverResponds[0].top_ask.price + serverResponds[0].top_bid.price)/2
++      const price_def = (serverResponds[1].top_ask.price + serverResponds[1].top_bid.price)/2
++      const ratio = price_abc/price_def;
++
++      const upper_bound = 1+0.1;
++      const lower_bound = 1-0.1;
+       return {
+-        stock: el.stock,
+-        top_ask_price: el.top_ask && el.top_ask.price || 0,
+-        timestamp: el.timestamp,
++        price_abc,
++        price_def,
++        ratio,
++        upper_bound,
++        lower_bound,
++        timestamp: serverResponds[0].timestamp > serverResponds[1].timestamp?serverResponds[0].timestamp:serverResponds[1].timestamp,
++        trigger_alert:(ratio>upper_bound || ratio<lower_bound)?ratio:undefined
+       };
+     })
+   }
+diff --git a/src/Graph.tsx b/src/Graph.tsx
+index 277797d..858dc7d 100644
+--- a/src/Graph.tsx
++++ b/src/Graph.tsx
+@@ -23,9 +23,12 @@ class Graph extends Component<IProps, {}> {
+     const elem = document.getElementsByTagName('perspective-viewer')[0] as unknown as PerspectiveViewerElement;
+ 
+     const schema = {
+-      stock: 'string',
+-      top_ask_price: 'float',
+-      top_bid_price: 'float',
++      price_abc:'float',
++      price_def:'float',
++      ratio:'float',
++      upper_bound:'float',
++      lower_bound:'float',
++      trigger_alert:'float',
+       timestamp: 'date',
+     };
+ 
+@@ -36,13 +39,16 @@ class Graph extends Component<IProps, {}> {
+       // Load the `table` in the `<perspective-viewer>` DOM reference.
+       elem.load(this.table);
+       elem.setAttribute('view', 'y_line');
+-      elem.setAttribute('column-pivots', '["stock"]');
+       elem.setAttribute('row-pivots', '["timestamp"]');
+-      elem.setAttribute('columns', '["top_ask_price"]');
++      elem.setAttribute('columns', '["ratio","lower_bound","upper_bound","trigger_alert"]');
+       elem.setAttribute('aggregates', JSON.stringify({
+-        stock: 'distinctcount',
+-        top_ask_price: 'avg',
+-        top_bid_price: 'avg',
++
++        price_abc:'avg',
++      price_def:'avg',
++      ratio:'avg',
++      upper_bound:'avg',
++      lower_bound:'avg',
++      trigger_alert:'avg',
+         timestamp: 'distinct count',
+       }));
+     }
+-- 
+2.39.2.windows.1
+
